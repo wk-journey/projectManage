@@ -16,7 +16,7 @@ module.exports = {
   devServer: {
     disableHostCheck: true,
     port: port,
-    open: true,
+    open: false,
     overlay: {
       warnings: false,
       errors: true
@@ -24,8 +24,8 @@ module.exports = {
     proxy: {
       [process.env.VUE_APP_BASE_API]: {
         target: "http://localhost:8090",
-        changeOrigin: false,
-        ws: true,
+        changeOrigin: true,
+        // ws: true,
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }

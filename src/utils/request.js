@@ -1,7 +1,7 @@
 import axios from "axios";
-import {
-  Message
-} from "element-ui";
+import qs from "qs";
+
+import { Message } from "element-ui";
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
@@ -11,34 +11,33 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // logical handler before request
-    console.log(config)
-    return config
+    console.log(config);
+    return config;
   },
   error => {
-    console.log(error)
+    console.log(error);
     // return error
-    return Promise.reject(error)
+    return Promise.reject(error);
   }
-)
+);
 
 service.interceptors.response.use(
   response => {
-    const res = response.data
+    console.log(response);
+    // const res = response.data
     // logical handler before response
-    console.log(res)
-
-    return res
+    return response;
   },
   error => {
-    console.log('err' + error)
+    console.log("err" + error);
     Message({
       message: error.message,
-      type: 'error',
+      type: "error",
       duration: 5 * 1000
-    })
+    });
     // return error
-    return Promise.reject(error)
+    return Promise.reject(error);
   }
-)
+);
 
-export default service
+export default service;

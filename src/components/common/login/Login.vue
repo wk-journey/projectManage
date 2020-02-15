@@ -6,17 +6,11 @@
       </div>
 
       <el-form-item label="用户名：">
-        <el-input
-          v-model="loginForm.username"
-          placeholder="请输入用户名"
-        ></el-input>
+        <el-input v-model="loginForm.username" placeholder="请输入用户名"></el-input>
       </el-form-item>
 
       <el-form-item label="密 码：">
-        <el-input
-          v-model="loginForm.password"
-          placeholder="请输入密码"
-        ></el-input>
+        <el-input v-model="loginForm.password" placeholder="请输入密码"></el-input>
       </el-form-item>
 
       <el-form-item>
