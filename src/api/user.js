@@ -7,3 +7,14 @@ export function login(data) {
     data
   })
 }
+
+export function getInfo(uid, token) {
+  return request({
+    url: 'user/getUserInfo',
+    method: 'get',
+    params: {
+      uid,
+      token
+    }
+  })
+}
