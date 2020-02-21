@@ -28,7 +28,9 @@ export default {
       loginForm: {
         username: "Kai",
         password: "123456"
-      }
+      },
+      redirect: undefined,
+      otherQuery: {}
     };
   },
   methods: {
@@ -37,6 +39,7 @@ export default {
         .dispatch("user/login", this.loginForm)
         .then(res => {
           console.log(res);
+          this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
         })
         .catch(err => {
           console.log(err);

@@ -54,14 +54,13 @@ const actions = {
           password
         })
         .then(response => {
-          const {
-            data
-          } = response
-          commit('SET_TOKEN', data.token)
-          commit('SET_UID', data.uid)
-          setToken(data.token)
-          setToken(data.uid)
-          resolve(data)
+          console.log('==========user.js:response=' + response);
+          const res = response.data.data
+          commit('SET_TOKEN', res.token)
+          commit('SET_UID', res.uid)
+          setToken(res.token)
+          setUid(res.uid)
+          resolve(res)
         })
         .catch(error => {
           reject(error)
@@ -78,11 +77,11 @@ const actions = {
           token: state.token
         })
         .then(response => {
-          const {
-            data
-          } = response
+          console.console.log('==========user.js:response=' + response + '==========');
+          console.console.log('==========user.js:response.data=' + response.data + '==========');
 
-          if (!response.success || !data) {
+          const data = response.data.data
+          if (!response.data.success || !data) {
             reject('Verification failed, please Login again.')
           }
 
@@ -99,8 +98,8 @@ const actions = {
 
           console.log("[getInfo]: data");
 
-          commit('SET_USERNAME', data.username)
-          commit('SET_ROLES', data.roles)
+          commit('SET_USERNAME', username)
+          commit('SET_ROLES', roles)
           resolve(data)
         })
         .catch(error => {

@@ -1,7 +1,12 @@
-import axios from "axios";
-import qs from "qs";
-
-import { Message } from "element-ui";
+import axios from "axios"
+import store from 'store'
+import {
+  getUid,
+  getToken
+} from 'utils/auth'
+import {
+  Message
+} from "element-ui"
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
@@ -11,6 +16,12 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // logical handler before request
+    if (store.getters.uid) {
+      config.headers['uid'] = getUid()
+    }
+    if (store.getters.token) {
+      config.headers['token'] = getToken()
+    }
     console.log(config);
     return config;
   },

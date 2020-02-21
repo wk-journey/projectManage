@@ -16,7 +16,7 @@ module.exports = {
   devServer: {
     disableHostCheck: true,
     port: port,
-    open: false,
+    open: true,
     overlay: {
       warnings: false,
       errors: true
@@ -40,9 +40,10 @@ module.exports = {
         content: "components/content",
         common: "components/common",
         assets: "@/assets",
-        network: "@/network",
+        api: "@/api",
         views: "@/views",
-        utils: "@/utils"
+        utils: "@/utils",
+        store: "@/store"
       }
     }
   }
