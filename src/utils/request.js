@@ -34,10 +34,14 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
   response => {
-    console.log(response);
-    // const res = response.data
+    // console.log(response);
+    const res = {
+      ...response.data
+    }
     // logical handler before response
-    return response;
+    console.log(res);
+
+    return res;
   },
   error => {
     console.log("err" + error);

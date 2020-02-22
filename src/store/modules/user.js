@@ -10,17 +10,13 @@ import {
   setUid
 } from '@/utils/auth'
 
-const getDefaultState = () => {
-  return {
-    token: getToken(),
-    uid: getUid(),
-    userName: '',
-    avatar: '',
-    roles: []
-  }
+const state = {
+  token: getToken(),
+  uid: getUid(),
+  userName: '',
+  avatar: '',
+  roles: []
 }
-
-const state = getDefaultState()
 
 const mutations = {
   SET_TOKEN: (state, token) => {
@@ -54,13 +50,12 @@ const actions = {
           password
         })
         .then(response => {
-          console.log('==========user.js:response=' + response);
-          const res = response.data.data
-          commit('SET_TOKEN', res.token)
-          commit('SET_UID', res.uid)
-          setToken(res.token)
-          setUid(res.uid)
-          resolve(res)
+          const data = response.data
+          commit('SET_TOKEN', data.token)
+          commit('SET_UID', data.uid)
+          setToken(data.token)
+          setUid(data.uid)
+          resolve(data)
         })
         .catch(error => {
           reject(error)
@@ -77,11 +72,9 @@ const actions = {
           token: state.token
         })
         .then(response => {
-          console.console.log('==========user.js:response=' + response + '==========');
-          console.console.log('==========user.js:response.data=' + response.data + '==========');
+          const data = response.data
 
-          const data = response.data.data
-          if (!response.data.success || !data) {
+          if (!response.success || !data) {
             reject('Verification failed, please Login again.')
           }
 
@@ -96,9 +89,7 @@ const actions = {
             reject('getInfo: roles must be a non-null array!')
           }
 
-          console.log("[getInfo]: data");
-
-          commit('SET_USERNAME', username)
+          commit('SET_USERNAME', userName)
           commit('SET_ROLES', roles)
           resolve(data)
         })

@@ -31,14 +31,13 @@ export default {
       },
       redirect: undefined,
       otherQuery: {}
-    };
+    }
   },
   methods: {
     handleLogin() {
       this.$store
         .dispatch("user/login", this.loginForm)
         .then(res => {
-          console.log(res);
           this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
         })
         .catch(err => {
