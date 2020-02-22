@@ -92,6 +92,7 @@ const actions = {
           commit('SET_USERNAME', userName)
           commit('SET_ROLES', roles)
           resolve(data)
+
         })
         .catch(error => {
           reject(error)

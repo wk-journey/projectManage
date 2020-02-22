@@ -39,13 +39,16 @@ export default {
         .dispatch("user/login", this.loginForm)
         .then(res => {
           this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
+          // .catch(err => {
+          //   console.log(err)
+          // })
         })
         .catch(err => {
-          console.log(err);
-        });
+          console.log(err)
+        })
     }
   }
-};
+}
 </script>
 
 <style scope></style>
