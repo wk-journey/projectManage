@@ -43,7 +43,8 @@ module.exports = {
         api: "@/api",
         views: "@/views",
         utils: "@/utils",
-        store: "@/store"
+        store: "@/store",
+        layout: "@/layout"
       }
     }
   }
