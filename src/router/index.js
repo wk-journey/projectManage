@@ -12,6 +12,8 @@ Router.prototype.push = function push(location, onResolve, onReject) {
 
 import Layout from '@/layout'
 
+import tableRouter from './modules/table'
+
 export const constantRoutes = [{
     path: "/login",
     component: () => import("views/login/index"),
@@ -25,29 +27,50 @@ export const constantRoutes = [{
       path: 'dashboard',
       component: () => import('views/dashboard/index'),
       name: 'Dashboard',
-      mate: {
+      meta: {
         title: 'Dashboard',
         icon: 'dashboard',
         affix: true
       }
     }]
   },
-];
+  {
+    path: '/documentation',
+    component: Layout,
+    children: [{
+      path: 'index',
+      component: () => import('views/documentation/index'),
+      name: 'Documentation',
+      meta: {
+        title: 'Documentation',
+        icon: 'documentation',
+        affix: true
+      }
+    }]
+  }
+]
 
 export const asyncRoutes = [{
-  path: '/permission',
-  component: Layout,
-  redirect: '/permission/page',
-  children: [{
-    path: 'page',
-    component: () => import('views/permission/page'),
-    name: 'PagePermission',
-    mate: {
-      title: 'Page Permission',
-      roles: ['admin']
-    }
-  }]
-}]
+    path: '/permission',
+    component: Layout,
+    redirect: '/permission/page',
+    alwaysShow: true, // will always show root menu
+    name: 'Permission',
+    meta: {
+      title: 'Permission'
+    },
+    children: [{
+      path: 'page',
+      component: () => import('views/permission/page'),
+      name: 'PagePermission',
+      mate: {
+        title: 'Page Permission',
+        roles: ['admin']
+      }
+    }]
+  },
+  tableRouter
+]
 
 const createRouter = () => new Router({
   mode: "history", // require service support

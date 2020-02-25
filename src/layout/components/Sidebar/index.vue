@@ -1,8 +1,14 @@
 <template>
   <div>
+    <!-- <div>Sidebar</div> -->
+    <!-- <div>{{permission_routes}}</div> -->
     <el-menu>
-      <sidebar-item />
-      <!-- <sidebar-item v-for="route in permission_routes" :key="route.path" :item="route" /> -->
+      <sidebar-item
+        v-for="route in permission_routes"
+        :key="route.path"
+        :item="route"
+        :base-path="route.path"
+      />
     </el-menu>
   </div>
 </template>
