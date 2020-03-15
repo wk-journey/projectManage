@@ -61,7 +61,7 @@ module.exports = {
       .end();
     config.module
       .rule("icons")
-      .test("/.svg$/")
+      .test(/\.svg$/)
       .include.add(resolve("src/icons"))
       .end()
       .use("svg-sprite-loader")

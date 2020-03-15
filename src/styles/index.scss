@@ -1,1 +1,30 @@
 @import './variables.scss';
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale; // 字体抗锯齿渲染 -- firefox
+  -webkit-font-smoothing: antialiased; // 字体抗锯齿渲染 -- chrome、safari
+  text-rendering: optimizeLegibility; // SVG属性 -- 小于20px
+  font-family: Helvetica Neue,
+    Helvetica,
+    PingFang SC,
+    Hiragino Sans GB,
+    Microsoft YaHei,
+    Arial,
+    sans-serif;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
