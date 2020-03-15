@@ -10,6 +10,7 @@ import Element from "element-ui";
 import 'normalize.css/normalize.css'
 
 import '@/styles/index.scss' // global css
+import '@/styles/element-variables.scss'
 
 import '@/icons' // icons
 import '@/permission'

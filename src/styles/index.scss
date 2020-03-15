@@ -28,3 +28,7 @@ html {
 *:after {
   box-sizing: inherit;
 }
+
+div:focus {
+  outline: none;
+}
