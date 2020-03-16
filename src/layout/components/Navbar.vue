@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <a
+    <!-- <a
       href="https://github.com/wk-journey/projectManage"
       target="_blank"
       class="github-corner"
@@ -26,7 +26,7 @@
           class="octo-body"
         />
       </svg>
-    </a>
+    </a>-->
   </div>
 </template>
 

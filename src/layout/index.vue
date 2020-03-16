@@ -1,16 +1,12 @@
 <template>
-  <div class="layout-m">
-    <sidebar />
-    <div>
+  <div class="app-wrapper">
+    <sidebar class="sidebar-container" />
+    <div class="main-container">
       <div>
         <navbar />
       </div>
-      <div>
-        <app-main />
-      </div>
+      <app-main />
     </div>
-    <!-- <h2>Layout</h2> -->
-    <!-- <router-view /> -->
   </div>
 </template>
 
@@ -27,4 +23,12 @@ export default {
 }
 </script>
 
-<style scope></style>
+<style lang="scss" scope>
+@import "~@/styles/mixin.scss";
+
+.app-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+</style>

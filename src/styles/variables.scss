@@ -1,0 +1,9 @@
+// sidebar
+$menuBg:#304156;
+
+$sideBarWidth: 210px;
+
+:export {
+  menuBg: $menuBg;
+  sideBarWidth: $sideBarWidth;
+}

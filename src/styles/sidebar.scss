@@ -1,0 +1,16 @@
+#app {
+
+  .sidebar-container {
+    width: $sideBarWidth !important;
+    background-color: $menuBg;
+    height: 100%;
+  }
+
+  .scrollbar-wrapper {
+    overflow-x: hidden !important;
+  }
+
+  .el-scrollbar {
+    height: 100%;
+  }
+}
