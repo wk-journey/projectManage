@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-scrollbar wrap-class="scrollbar-wrapper">
-      <el-menu :background-color="variables.menuBg">
+      <el-menu :background-color="variables.menuBg" :text-color="variables.menuText">
         <sidebar-item
           v-for="route in permission_routes"
           :key="route.path"

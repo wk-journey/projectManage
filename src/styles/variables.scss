@@ -1,9 +1,14 @@
 // sidebar
+$menuText:#bfcbd9;
+$menuActiveText:#409EFF;
+$subMenuActiveText:#f4f4f5;
+
 $menuBg:#304156;
 
 $sideBarWidth: 210px;
 
 :export {
+  menuText: $menuText;
   menuBg: $menuBg;
   sideBarWidth: $sideBarWidth;
 }

@@ -1,5 +1,4 @@
 #app {
-
   .sidebar-container {
     width: $sideBarWidth !important;
     background-color: $menuBg;
@@ -10,7 +9,17 @@
     overflow-x: hidden !important;
   }
 
+  .el-scrollbar__bar.is-vertical {
+    right: 0px;
+  }
+
   .el-scrollbar {
     height: 100%;
+  }
+
+  .el-menu {
+    border: none;
+    height: 100%;
+    width: 100% !important;
   }
 }
