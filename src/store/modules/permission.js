@@ -9,8 +9,8 @@ import {
  * @param route
  */
 function hasPermission(roles, route) {
-  if (route.mate && route.mate.roles) {
-    return roles.some(role => route.mate.roles.includes(role))
+  if (route.meta && route.meta.roles) {
+    return roles.some(role => route.meta.roles.includes(role))
   } else {
     return true
   }
@@ -46,8 +46,8 @@ const state = {
 
 const mutations = {
   SET_ROUTES: (state, routes) => {
-    state.routes = routes
-    state.addRoutes = constantRoutes.concat(routes)
+    state.addRoutes = routes
+    state.routes = constantRoutes.concat(routes)
   }
 }
 
