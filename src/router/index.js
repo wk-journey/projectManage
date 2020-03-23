@@ -63,9 +63,9 @@ export const asyncRoutes = [{
       path: 'page',
       component: () => import('views/permission/page'),
       name: 'PagePermission',
-      mate: {
+      meta: {
         title: 'Page Permission',
-        roles: ['admin']
+        roles: ['admin', 'read']
       }
     }]
   },

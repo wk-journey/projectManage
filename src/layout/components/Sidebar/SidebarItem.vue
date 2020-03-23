@@ -2,11 +2,13 @@
 import path from 'path'
 import { isExternal } from 'utils/validate'
 import Item from './Item'
+import AppLink from './Link'
 
 export default {
   name: 'SidebarItem',
   components: {
-    Item
+    Item,
+    AppLink
   },
   props: {
     // route object
@@ -61,20 +63,22 @@ export default {
     let sidebarItem
     if (onlyOneChild && (!onlyOneChild.children || onlyOneChild.noShowChildren) && !this.item.alwaysShow) {
       sidebarItem =
-        <el-menu-item index={this.resolvePath(onlyOneChild.path)}>
-          <item title={onlyOneChild.meta.title}></item>
-        </el-menu-item>
+        <app-link v-if={onlyOneChild.meta} to={this.resolvePath(onlyOneChild.path)}>
+          <el-menu-item index={this.resolvePath(onlyOneChild.path)}>
+            <item title={onlyOneChild.meta.title}></item>
+          </el-menu-item>
+        </app-link>
     } else {
       sidebarItem = <el-submenu index={this.resolvePath(this.item.path)}>
         <template slot="title">
-          <item title={this.item.meta.title}></item>
+          <item v-if={this.meta} title={this.item.meta.title}></item>
         </template>
         {
           showingChildren.map(child =>
             <sidebar-item
               key={child.path}
               item={child}
-              base-path={child.path}>
+              base-path={this.resolvePath(child.path)}>
             </sidebar-item>
           )
         }
