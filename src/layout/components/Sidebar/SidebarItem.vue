@@ -60,14 +60,16 @@ export default {
     // console.log('onlyOneChild--------- ' + description)
     // console.log(onlyOneChild && (!onlyOneChild.children || onlyOneChild.noShowChildren) && !this.item.alwaysShow)
 
-    let sidebarItem
+    let sidebarItem = null
     if (onlyOneChild && (!onlyOneChild.children || onlyOneChild.noShowChildren) && !this.item.alwaysShow) {
-      sidebarItem =
-        <app-link v-if={onlyOneChild.meta} to={this.resolvePath(onlyOneChild.path)}>
-          <el-menu-item index={this.resolvePath(onlyOneChild.path)}>
-            <item title={onlyOneChild.meta.title}></item>
-          </el-menu-item>
-        </app-link>
+      if (onlyOneChild.meta) {
+        sidebarItem =
+          <app-link to={this.resolvePath(onlyOneChild.path)}>
+            <el-menu-item index={this.resolvePath(onlyOneChild.path)}>
+              <item title={onlyOneChild.meta.title}></item>
+            </el-menu-item>
+          </app-link>
+      }
     } else {
       sidebarItem = <el-submenu index={this.resolvePath(this.item.path)}>
         <template slot="title">
